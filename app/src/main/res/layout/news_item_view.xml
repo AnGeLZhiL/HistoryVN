@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@color/beige">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:background="@color/beige3"/>
+
+    <TextView
+        android:id="@+id/date_news"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="15dp"
+        android:paddingTop="20dp"
+        android:fontFamily="@font/vollkorn_bold"
+        android:text="01.01.2022"
+        android:textColor="@color/beige3"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/title_news"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/date_news"
+        android:paddingHorizontal="15dp"
+        android:fontFamily="@font/vollkorn_bold"
+        android:text="Заголовок"
+        android:textColor="@color/dark_brown"
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/inf_news"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/title_news"
+        android:fontFamily="@font/vollkorn_bold"
+        android:paddingHorizontal="15dp"
+        android:paddingVertical="10dp"
+        android:text="Сайт рыбатекст поможет дизайнеру, верстальщику, вебмастеру сгенерировать несколько абзацев более менее осмысленного текста рыбы на русском языке, а начинающему оратору отточить навык публичных выступлений в домашних условиях. При создании генератора мы использовали небезизвестный универсальный код речей."
+        android:textColor="@color/dark_brown"
+        android:textSize="20sp" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:paddingHorizontal="15dp"
+        android:layout_below="@+id/inf_news"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/ic_launcher_background"
+        android:scaleType="fitCenter"
+        android:paddingBottom="20dp"/>
+
+</RelativeLayout>

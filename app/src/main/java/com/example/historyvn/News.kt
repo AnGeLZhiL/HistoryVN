@@ -1,20 +1,19 @@
 package com.example.historyvn
 
-import android.R
-import android.os.Bundle
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
 import com.example.historyvn.databinding.ActivityMainBinding
 import com.example.historyvn.fragment.fr_news
 import com.example.historyvn.fragment.informations
 import com.example.historyvn.fragment.tests
 import com.example.historyvn.fragment.user
+import com.example.historyvn.models.TheObject
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import okhttp3.*
 import org.json.JSONArray
+import org.json.JSONObject
 import java.io.IOException
 import java.util.logging.Logger
-
 
 class News : AppCompatActivity() {
 
@@ -76,7 +75,7 @@ class News : AppCompatActivity() {
     {
         val client = OkHttpClient()
         val request = Request.Builder()
-            .method("GET")
+            .get()
             .url("https://96024908fef05d.lhrtunnel.link/api/objects")
             .build()
         client.newCall(request).enqueue(object : Callback {
@@ -89,11 +88,15 @@ class News : AppCompatActivity() {
                     if (!response.isSuccessful) throw IOException("Unexpected code $response")
                     val responseBody = response.body()
                     val jsonArray = JSONArray(responseBody!!.string())
-                    val jsonUserData = jsonArray.getJSONObject(0)
-                    val textViewName: TextView = view.findViewById(R.id.textViewName)
-                    val textViewEmail: TextView = view.findViewById(R.id.textViewEmail)
+                    val objectsList = mutableListOf<TheObject>()
+                    for (i in 0..jsonArray.length())
+                    {
+                        val jsonObject: JSONObject = jsonArray.getJSONObject(i)
+                        val a_object = TheObject(jsonObject.getInt(:"id"))
+                        objectsList.add(a_object)
+                    }
                     val log = Logger.getLogger(MainActivity::class.java.name)
-                    log.warning("--------------------------" + token)
+                    log.warning("--------------------------")
                 }
             }
         })

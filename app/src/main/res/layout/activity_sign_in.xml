@@ -98,6 +98,7 @@
             android:onClick="Login_onClick">
 
             <TextView
+                android:id="@+id/textViewSignIn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -108,8 +109,7 @@
                 android:paddingRight="20dp"
                 android:text="@string/login"
                 android:textColor="@color/beige"
-                android:textSize="23sp"
-                android:onClick="Login_onClick"/>
+                android:textSize="23sp"/>
 
         </LinearLayout>
 

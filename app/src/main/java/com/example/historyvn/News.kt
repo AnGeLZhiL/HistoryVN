@@ -1,13 +1,20 @@
 package com.example.historyvn
 
-import androidx.appcompat.app.AppCompatActivity
+import android.R
 import android.os.Bundle
+import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import com.example.historyvn.databinding.ActivityMainBinding
 import com.example.historyvn.fragment.fr_news
 import com.example.historyvn.fragment.informations
 import com.example.historyvn.fragment.tests
 import com.example.historyvn.fragment.user
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import okhttp3.*
+import org.json.JSONArray
+import java.io.IOException
+import java.util.logging.Logger
+
 
 class News : AppCompatActivity() {
 
@@ -43,6 +50,7 @@ class News : AppCompatActivity() {
             }
             return@setOnNavigationItemSelectedListener false
         }
+        getNews()
 //        bottomNavigationView.setOnItemSelectedListener {
 //                item ->
 //            when(item.itemId){
@@ -64,4 +72,30 @@ class News : AppCompatActivity() {
 
     }
 
+    private fun getNews()
+    {
+        val client = OkHttpClient()
+        val request = Request.Builder()
+            .method("GET")
+            .url("https://96024908fef05d.lhrtunnel.link/api/objects")
+            .build()
+        client.newCall(request).enqueue(object : Callback {
+            override fun onFailure(call: Call, e: IOException) {
+                e.printStackTrace()
+            }
+
+            override fun onResponse(call: Call, response: Response) {
+                response.use {
+                    if (!response.isSuccessful) throw IOException("Unexpected code $response")
+                    val responseBody = response.body()
+                    val jsonArray = JSONArray(responseBody!!.string())
+                    val jsonUserData = jsonArray.getJSONObject(0)
+                    val textViewName: TextView = view.findViewById(R.id.textViewName)
+                    val textViewEmail: TextView = view.findViewById(R.id.textViewEmail)
+                    val log = Logger.getLogger(MainActivity::class.java.name)
+                    log.warning("--------------------------" + token)
+                }
+            }
+        })
+    }
 }

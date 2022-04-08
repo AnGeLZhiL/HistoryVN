@@ -72,6 +72,7 @@
                     android:text="@string/name" />
 
                 <EditText
+                    android:id="@+id/editLastNameText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="20dp"
@@ -90,6 +91,7 @@
                     android:text="@string/familiya" />
 
                 <EditText
+                    android:id="@+id/editFirstNameText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="20dp"
@@ -108,6 +110,7 @@
                     android:text="@string/otchestvo" />
 
                 <EditText
+                    android:id="@+id/editMiddleNameText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="20dp"
@@ -126,6 +129,7 @@
                     android:text="@string/date_r" />
 
                 <EditText
+                    android:id="@+id/editBirthdayDate"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="20dp"
@@ -143,7 +147,9 @@
                     android:fontFamily="@font/vollkorn_bold"
                     android:text="@string/log" />
 
+
                 <EditText
+                    android:id="@+id/editLoginText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="20dp"
@@ -163,6 +169,7 @@
                     android:text="@string/password" />
 
                 <EditText
+                    android:id="@+id/editPasswordText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="20dp"
@@ -182,6 +189,7 @@
                     android:text="@string/repeat_password" />
 
                 <EditText
+                    android:id="@+id/editPasswordConfirmationText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="20dp"
@@ -196,10 +204,10 @@
                     android:layout_height="wrap_content"
                     android:background="@drawable/buttons"
                     android:layout_gravity="center"
-                    android:layout_marginBottom="30dp"
-                    android:onClick="Login_onClick">
+                    android:layout_marginBottom="30dp">
 
                     <TextView
+                        android:id="@+id/textViewSignUp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -210,8 +218,7 @@
                         android:paddingRight="20dp"
                         android:text="@string/login"
                         android:textColor="@color/beige"
-                        android:textSize="23sp"
-                        android:onClick="Login_onClick" />
+                        android:textSize="23sp" />
 
                 </LinearLayout>
 
@@ -225,6 +232,7 @@
                     android:textSize="18sp"
                     android:onClick="SignIn_onClick"/>
                 <TextView
+                    android:id="@+id/textSignIn"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/vollkorn_semibold"

@@ -49,7 +49,7 @@ class News : AppCompatActivity() {
             }
             return@setOnNavigationItemSelectedListener false
         }
-        getNews()
+        //getNews()
 //        bottomNavigationView.setOnItemSelectedListener {
 //                item ->
 //            when(item.itemId){
@@ -71,7 +71,7 @@ class News : AppCompatActivity() {
 
     }
 
-    private fun getNews()
+    /*private fun getNews()
     {
         val client = OkHttpClient()
         val request = Request.Builder()
@@ -100,5 +100,5 @@ class News : AppCompatActivity() {
                 }
             }
         })
-    }
+    }*/
 }

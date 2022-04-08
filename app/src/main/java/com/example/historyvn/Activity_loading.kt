@@ -1,9 +1,9 @@
 package com.example.historyvn
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 
 class Activity_loading : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,5 +19,9 @@ class Activity_loading : AppCompatActivity() {
     fun SignUp_onClick (view: View){
         val SignUp = Intent(this, sigin_Up::class.java)
         startActivity(SignUp)
+    }
+
+    override fun onBackPressed() {
+        // do nothing
     }
 }

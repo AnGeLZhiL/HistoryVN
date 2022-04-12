@@ -11,13 +11,13 @@ class Activity_loading : AppCompatActivity() {
         setContentView(R.layout.activity_loading)
     }
 
-    fun SignIn_onClick (view: View){
+    fun SignInOnClick (view: View){
         val SignIn = Intent(this, SignIn::class.java)
         startActivity(SignIn)
     }
 
     fun SignUp_onClick (view: View){
-        val SignUp = Intent(this, sigin_Up::class.java)
+        val SignUp = Intent(this, SignUpActivity::class.java)
         startActivity(SignUp)
     }
 

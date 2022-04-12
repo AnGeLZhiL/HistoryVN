@@ -1,9 +1,10 @@
-package com.example.historyvn.models
+package com.example.models
 
+import com.example.historyvn.models.ImageModel
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class TheObject(
+data class ObjectModel(
     val id: Int,
     val title: String,
     val category: Int,

@@ -95,7 +95,7 @@
             android:background="@drawable/buttons"
             android:layout_gravity="center"
             android:layout_marginBottom="30dp"
-            android:onClick="Login_onClick">
+            android:onClick="LoginOnClick">
 
             <TextView
                 android:id="@+id/textViewSignIn"

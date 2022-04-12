@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/menu">
+    <fragment
+        android:id="@+id/menu"
+        android:name="com.example.historyvn.fragment.FragmentNews"
+        android:label="fragment_fr_news"
+        tools:layout="@layout/fragment_fr_news" />
+    <fragment
+        android:id="@+id/informations"
+        android:name="com.example.historyvn.fragment.FragmentInformations"
+        android:label="fragment_informations"
+        tools:layout="@layout/fragment_informations" >
+        <action
+            android:id="@+id/action_informations_to_objectsFragment2"
+            app:destination="@id/objectsFragment">
+            <argument
+                android:name="CategoryId"
+                android:defaultValue="-1" />
+        </action>
+    </fragment>
+    <fragment
+        android:id="@+id/tests"
+        android:name="com.example.historyvn.fragment.FragmentTests"
+        android:label="fragment_tests"
+        tools:layout="@layout/fragment_tests" />
+    <fragment
+        android:id="@+id/user"
+        android:name="com.example.historyvn.fragment.user"
+        android:label="fragment_user"
+        tools:layout="@layout/fragment_user" />
+    <fragment
+        android:id="@+id/objectsFragment"
+        android:name="com.example.historyvn.fragment.ObjectsFragment"
+        android:label="fragment_objects"
+        tools:layout="@layout/fragment_objects" >
+        <argument
+            android:name="CategoryId"
+            app:argType="integer" />
+    </fragment>
+</navigation>

@@ -3,6 +3,20 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Alex/AndroidStudioProjects/HistoryVN/app/src/main/res/layout/activity_main.xml" value="0.13541666666666666" />
+        <entry key="..\:/Users/Alex/AndroidStudioProjects/HistoryVN/app/src/main/res/layout/activity_main2.xml" value="0.20969202898550723" />
+        <entry key="..\:/Users/Alex/AndroidStudioProjects/HistoryVN/app/src/main/res/layout/activity_news.xml" value="0.25" />
+        <entry key="..\:/Users/Alex/AndroidStudioProjects/HistoryVN/app/src/main/res/layout/activity_sigin_up.xml" value="0.14628623188405798" />
+        <entry key="..\:/Users/Alex/AndroidStudioProjects/HistoryVN/app/src/main/res/layout/activity_sign_in.xml" value="0.1947463768115942" />
+        <entry key="..\:/Users/Alex/AndroidStudioProjects/HistoryVN/app/src/main/res/layout/categories_item_view.xml" value="0.20969202898550723" />
+        <entry key="..\:/Users/Alex/AndroidStudioProjects/HistoryVN/app/src/main/res/layout/fragment_fr_news.xml" value="0.1947463768115942" />
+        <entry key="..\:/Users/Alex/AndroidStudioProjects/HistoryVN/app/src/main/res/layout/fragment_informations.xml" value="0.20969202898550723" />
+        <entry key="..\:/Users/Alex/AndroidStudioProjects/HistoryVN/app/src/main/res/layout/fragment_objects.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Alex/AndroidStudioProjects/HistoryVN/app/src/main/res/layout/fragment_tests.xml" value="0.20969202898550723" />
+        <entry key="..\:/Users/Alex/AndroidStudioProjects/HistoryVN/app/src/main/res/layout/fragment_user.xml" value="0.20969202898550723" />
+        <entry key="..\:/Users/Alex/AndroidStudioProjects/HistoryVN/app/src/main/res/layout/object_item.xml" value="0.21614583333333334" />
+        <entry key="..\:/Users/Alex/AndroidStudioProjects/HistoryVN/app/src/main/res/menu/bottom_nav_menu.xml" value="0.346875" />
+        <entry key="..\:/Users/Alex/AndroidStudioProjects/HistoryVN/app/src/main/res/menu/menu.xml" value="0.346875" />
         <entry key="..\:/Users/User/AndroidStudioProjects/HistoryVN/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2703125" />
         <entry key="..\:/Users/User/AndroidStudioProjects/HistoryVN/app/src/main/res/drawable/buttons.xml" value="0.2703125" />
         <entry key="..\:/Users/User/AndroidStudioProjects/HistoryVN/app/src/main/res/drawable/categories.xml" value="0.2703125" />

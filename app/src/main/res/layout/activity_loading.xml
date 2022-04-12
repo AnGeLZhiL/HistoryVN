@@ -40,7 +40,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/buttons"
-                android:onClick="SignIn_onClick">
+                android:onClick="SignInOnClick">
 
                 <TextView
                     android:layout_width="match_parent"
@@ -52,7 +52,7 @@
                     android:text="@string/login"
                     android:textColor="@color/beige"
                     android:textSize="23sp"
-                    android:onClick="SignIn_onClick"/>
+                    android:onClick="SignInOnClick"/>
 
             </LinearLayout>
 

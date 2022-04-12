@@ -15,14 +15,15 @@
         android:src="@drawable/ic_launcher_background" />
 
     <TextView
+        android:id="@+id/text_categories"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/img_categories"
-        android:padding="15dp"
-        android:gravity="center_horizontal"
-        android:textSize="25sp"
-        android:fontFamily="@font/vollkorn_bold"
         android:background="@color/dark_beige"
-        android:text="Категория" />
+        android:fontFamily="@font/vollkorn_bold"
+        android:gravity="center_horizontal"
+        android:padding="15dp"
+        android:text="Категория"
+        android:textSize="25sp" />
 
 </RelativeLayout>

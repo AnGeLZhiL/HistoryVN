@@ -26,6 +26,7 @@ class ObjectsFragment : Fragment() {
 
     val args by navArgs<ObjectsFragmentArgs>()
     val viewModel by viewModel<ObjectsViewModel>()
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -46,7 +47,6 @@ class ObjectsFragment : Fragment() {
                 viewModel.loadObjects(args.categoryId)
             )
         }
-
     }
 
 

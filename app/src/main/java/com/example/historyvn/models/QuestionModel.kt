@@ -1,10 +1,11 @@
-package com.example.models
+package com.example.historyvn.models
 
 import kotlinx.serialization.Serializable
 
 @Serializable
 data class QuestionModel(
     val id: Int,
+    val title: String,
     val answers: List<AnswerModel>
 )
 

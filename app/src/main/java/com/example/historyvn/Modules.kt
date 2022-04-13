@@ -1,9 +1,6 @@
 package com.example.historyvn
 
-import com.example.historyvn.viewmodels.CategoriesViewModel
-import com.example.historyvn.viewmodels.ObjectsViewModel
-import com.example.historyvn.viewmodels.SignInViewModel
-import com.example.historyvn.viewmodels.SignUpViewModel
+import com.example.historyvn.viewmodels.*
 import io.ktor.client.*
 import io.ktor.client.engine.okhttp.*
 import io.ktor.client.plugins.*
@@ -19,6 +16,9 @@ val appModule = module {
     viewModelOf(::SignUpViewModel)
     viewModelOf(::CategoriesViewModel)
     viewModelOf(::ObjectsViewModel)
+    viewModelOf(::TestViewModel)
+    viewModelOf(::QuestionViewModel)
+    viewModelOf(::ResultsViewModel)
     single {
         HttpClient(OkHttp) {
             install(Logging)

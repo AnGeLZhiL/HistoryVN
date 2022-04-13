@@ -7,46 +7,47 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.historyvn.User
-import com.example.historyvn.databinding.FragmentTestsBinding
-import com.example.historyvn.fragment.adapters.CategoryAdapter
-import com.example.historyvn.viewmodels.CategoriesViewModel
+import com.example.historyvn.databinding.FragmentTestsListBinding
+import com.example.historyvn.fragment.adapters.TestsAdapter
+import com.example.historyvn.viewmodels.TestViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class FragmentTests : Fragment() {
 
-    private var _binding: FragmentTestsBinding? = null
-    private val binding: FragmentTestsBinding
+class TestsListFragment : Fragment() {
+
+
+    private var _binding: FragmentTestsListBinding? = null
+    private val binding: FragmentTestsListBinding
         get() = _binding ?: throw RuntimeException()
 
-    private val categoriesViewModel by viewModel<CategoriesViewModel>()
+    val args by navArgs<TestsListFragmentArgs>()
+    val viewModel by viewModel<TestViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        // Inflate the layout for this fragment
-        _binding = FragmentTestsBinding.inflate(inflater)
+        _binding = FragmentTestsListBinding.inflate(inflater)
         return binding.root
     }
-
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.fioText.text =
             "${User.info.firstName} ${User.info.lastName[0]}. ${User.info.midlleName[0]}."
-        binding.ratignText.text = User.info.rating.toString()
+        binding.ratingText.text = User.info.rating.toString()
 
-        binding.categories.layoutManager = LinearLayoutManager(requireContext())
+        binding.objects.layoutManager = LinearLayoutManager(requireContext())
+
         lifecycleScope.launchWhenCreated {
-            binding.categories.adapter = CategoryAdapter(
-                categoriesViewModel.loadCategories().map {
+            binding.objects.adapter = TestsAdapter(
+                viewModel.loadObjects(args.categoryId).map {
                     it to {
                         findNavController().navigate(
-                            FragmentTestsDirections.actionTestsToTestsListFragment(
-                                it.id
-                            )
+                            TestsListFragmentDirections.actionTestsListFragmentToQuestionsFragment(it.id)
                         )
                     }
                 }
@@ -59,4 +60,5 @@ class FragmentTests : Fragment() {
         super.onDestroy()
         _binding = null
     }
+
 }

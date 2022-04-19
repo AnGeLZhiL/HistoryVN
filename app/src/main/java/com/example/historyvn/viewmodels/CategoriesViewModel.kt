@@ -2,20 +2,25 @@ package com.example.historyvn.viewmodels
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.models.CategoryModel
-import io.ktor.client.*
-import io.ktor.client.call.*
-import io.ktor.client.request.*
-import kotlinx.coroutines.withContext
+import com.example.historyvn.models.CategoryModel
+import com.example.historyvn.repositories.CategoryRepository
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.launch
 
 class CategoriesViewModel(
-    private val client: HttpClient
-): ViewModel() {
+    private val repository: CategoryRepository
+) : ViewModel() {
 
-    suspend fun loadCategories(): List<CategoryModel> = withContext(viewModelScope.coroutineContext) {
-        runCatching {
-            client.get("categories").body<List<CategoryModel>>()
-        }.getOrElse { emptyList() }
+    private val _categories = MutableStateFlow(emptyList<CategoryModel>())
+    val categories = _categories.asStateFlow()
+
+    init {
+        viewModelScope.launch {
+             repository.fetchCategories().collectLatest {
+                _categories.value = it
+            }
+        }
     }
-
 }

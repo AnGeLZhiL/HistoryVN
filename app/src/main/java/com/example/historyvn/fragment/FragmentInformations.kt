@@ -12,6 +12,7 @@ import com.example.historyvn.User
 import com.example.historyvn.databinding.FragmentInformationsBinding
 import com.example.historyvn.fragment.adapters.CategoryAdapter
 import com.example.historyvn.viewmodels.CategoriesViewModel
+import kotlinx.coroutines.flow.collectLatest
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class FragmentInformations : Fragment() {
@@ -38,17 +39,18 @@ class FragmentInformations : Fragment() {
         binding.ratingText.text = User.info.rating.toString()
         binding.categories.layoutManager = LinearLayoutManager(requireContext())
         lifecycleScope.launchWhenCreated {
-            binding.categories.adapter = CategoryAdapter(
-                viewModel.loadCategories().map {
-                    it to {
-                        val action = FragmentInformationsDirections.actionInformationsToObjectsFragment2()
-                        action.categoryId = it.id
-                        findNavController().navigate(
-                            action
-                        )
+            viewModel.categories.collectLatest { categories ->
+                binding.categories.adapter = CategoryAdapter(
+                    categories.map { category ->
+                        category to {
+                            findNavController().navigate(
+                                FragmentInformationsDirections.actionInformationsToObjectsFragment2()
+                                    .also { it.categoryId = category.id }
+                            )
+                        }
                     }
-                }
-            )
+                )
+            }
         }
     }
 

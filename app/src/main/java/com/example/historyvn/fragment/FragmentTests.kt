@@ -12,6 +12,7 @@ import com.example.historyvn.User
 import com.example.historyvn.databinding.FragmentTestsBinding
 import com.example.historyvn.fragment.adapters.CategoryAdapter
 import com.example.historyvn.viewmodels.CategoriesViewModel
+import kotlinx.coroutines.flow.collectLatest
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class FragmentTests : Fragment() {
@@ -40,17 +41,20 @@ class FragmentTests : Fragment() {
 
         binding.categories.layoutManager = LinearLayoutManager(requireContext())
         lifecycleScope.launchWhenCreated {
-            binding.categories.adapter = CategoryAdapter(
-                categoriesViewModel.loadCategories().map {
-                    it to {
-                        findNavController().navigate(
-                            FragmentTestsDirections.actionTestsToTestsListFragment(
-                                it.id
+            categoriesViewModel.categories.collectLatest { categories ->
+                binding.categories.adapter = CategoryAdapter(
+                    categories.map {
+                        it to {
+                            findNavController().navigate(
+                                FragmentTestsDirections.actionTestsToTestsListFragment(
+                                    it.id
+                                )
                             )
-                        )
+                        }
                     }
-                }
-            )
+                )
+            }
+
         }
     }
 

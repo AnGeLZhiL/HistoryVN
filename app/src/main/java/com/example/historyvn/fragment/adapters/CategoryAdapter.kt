@@ -7,10 +7,10 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.historyvn.R
-import com.example.models.CategoryModel
+import com.example.historyvn.models.CategoryModel
 import com.squareup.picasso.Picasso
 
-class CategoryAdapter(private val categories: List<Pair<CategoryModel, () -> Unit>>):
+class CategoryAdapter(var categories: List<Pair<CategoryModel, () -> Unit>>):
     RecyclerView.Adapter<CategoryAdapter.MyViewHolder>() {
 
     class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {

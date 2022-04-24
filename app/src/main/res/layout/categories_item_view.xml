@@ -6,24 +6,30 @@
     android:background="@color/beige"
     android:padding="15dp">
 
-    <ImageView
-        android:id="@+id/img_categories"
-        android:layout_width="match_parent"
-        android:layout_height="230dp"
-        android:layout_centerHorizontal="true"
-        android:scaleType="centerCrop"
-        android:src="@drawable/ic_launcher_background" />
-
-    <TextView
-        android:id="@+id/text_categories"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/img_categories"
-        android:background="@color/dark_beige"
-        android:fontFamily="@font/vollkorn_bold"
-        android:gravity="center_horizontal"
-        android:padding="15dp"
-        android:text="Категория"
-        android:textSize="25sp" />
+        android:orientation="vertical"
+        android:background="@drawable/testsshablon">
+
+        <ImageView
+            android:id="@+id/img_categories"
+            android:layout_width="match_parent"
+            android:layout_height="230dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/logo"/>
+
+        <TextView
+            android:id="@+id/text_categories"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/dark_beige"
+            android:fontFamily="@font/vollkorn_bold"
+            android:gravity="center_horizontal"
+            android:padding="15dp"
+            android:textColor="@color/dark_brown"
+            android:text="Категория"
+            android:textSize="25sp" />
+    </LinearLayout>
 
 </RelativeLayout>

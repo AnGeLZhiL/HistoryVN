@@ -2,6 +2,7 @@ package com.example.historyvn
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.EditText
 import android.widget.Toast
@@ -10,11 +11,11 @@ import androidx.lifecycle.lifecycleScope
 import com.example.historyvn.databinding.ActivitySiginUpBinding
 import com.example.historyvn.models.UserRegisterModel
 import com.example.historyvn.viewmodels.SignUpViewModel
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
-import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import java.security.MessageDigest
+import java.security.NoSuchAlgorithmException
 
 
 class SignUpActivity : AppCompatActivity() {
@@ -39,6 +40,7 @@ class SignUpActivity : AppCompatActivity() {
         lifecycleScope.launchWhenCreated {
             viewModel.registerState.collectLatest {
                 if (it) {
+                    Toast.makeText(applicationContext, "Пользователь зарегистрирован", Toast.LENGTH_LONG).show()
                     finishActivity(0)
                     startActivity(Intent(this@SignUpActivity, News::class.java))
                 }
@@ -65,6 +67,7 @@ class SignUpActivity : AppCompatActivity() {
         val loginText = binding.editLoginText
         val passwordText = binding.editPasswordText
         val passwordConfirmationText = binding.editPasswordConfirmationText
+        var hash: String = ""
 
         if(lastNameText.text.isNotEmpty() and
             firstNameText.text.isNotEmpty() and
@@ -78,18 +81,29 @@ class SignUpActivity : AppCompatActivity() {
                 if (passwordConfirmationText.text.toString() == passwordText.text.toString()){
                     //sign_up(lastNameText.text.toString(), firstNameText.text.toString(), middleNameText.text.toString(), birthdayDate,
                      //   loginText.text.toString(), passwordText.text.toString(), passwordConfirmationText.text.toString())
-                         lifecycleScope.launch {
+                         //var passwordHash = BCrypt.withDefaults().hashToString(12,passwordText.text.toString().toCharArray());
+                    var digest: MessageDigest? = null
+                    try {
+                        digest = MessageDigest.getInstance("SHA-256")
+                        digest.update(passwordText.text.toString().toByteArray())
+                        hash = bytesToHexString(digest.digest()).toString()
+                        Log.d("problemtest", hash)
+                    } catch (e1: NoSuchAlgorithmException) {
+                        // TODO Auto-generated catch block
+                        e1.printStackTrace()
+                    }
+                        lifecycleScope.launch {
                              viewModel.register(
                                  UserRegisterModel(
                                      lastName = lastNameText.text.toString(),
                                      midlleName = middleNameText.text.toString(),
                                      firstName = firstNameText.text.toString(),
                                      login = loginText.text.toString(),
-                                     password = passwordText.text.toString(),
+                                     password = hash,
                                      picture = 1
                                  )
                              ).onFailure {
-                                 Toast.makeText(this@SignUpActivity, it.message, Toast.LENGTH_LONG).show()
+                                 Toast.makeText(this@SignUpActivity, "Такой логин уже используется", Toast.LENGTH_LONG).show()
                              }
                          }
 
@@ -107,6 +121,17 @@ class SignUpActivity : AppCompatActivity() {
             if (passwordText.text.isEmpty()) passwordText.error = "Поле не заполнено"
             if (passwordConfirmationText.text.isEmpty()) passwordConfirmationText.error = "Поле не заполнено"
         }
+    }
+    private fun bytesToHexString(bytes: ByteArray): String? {
+        val sb = StringBuffer()
+        for (i in bytes.indices) {
+            val hex = Integer.toHexString(0xFF and bytes[i].toInt())
+            if (hex.length == 1) {
+                sb.append('0')
+            }
+            sb.append(hex)
+        }
+        return sb.toString()
     }
 
     private fun sign_up(

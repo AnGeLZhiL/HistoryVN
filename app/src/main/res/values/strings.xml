@@ -22,4 +22,10 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+    <string name="profile_name"><b><u>Имя:</u></b></string>
+    <string name="profile_fam"><b><u>Фамилия:</u></b></string>
+    <string name="profile_otch"><b><u>Отчество:</u></b></string>
+    <string name="testsUser">Пройденные тесты:</string>
+    <string name="location"><u><b>Информация:</b></u></string>
+    <string name="question_test"><u><b>Вопрос:</b></u></string>
 </resources>

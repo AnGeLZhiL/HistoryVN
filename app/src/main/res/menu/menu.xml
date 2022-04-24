@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/menu"
-        android:icon="@drawable/news"
-        android:title="Новости" />
+        android:id="@+id/user"
+        android:icon="@drawable/user"
+        android:title="Пользователь"/>
     <item
         android:id="@+id/informations"
         android:icon="@drawable/informations"
@@ -12,8 +12,5 @@
         android:id="@+id/tests"
         android:icon="@drawable/tests"
         android:title="Тесты"/>
-    <item
-        android:id="@+id/user"
-        android:icon="@drawable/user"
-        android:title="Пользователь"/>
+
 </menu>

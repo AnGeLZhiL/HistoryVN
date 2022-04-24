@@ -31,7 +31,7 @@ val appModule = module {
                 )
             }
             defaultRequest {
-                url("https://history-vn.herokuapp.com/api/v1/")
+                url("https://history-vn-deploy.herokuapp.com/api/v1/")
             }
         }
     }

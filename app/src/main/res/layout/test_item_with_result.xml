@@ -5,32 +5,35 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/question_title"
-        android:layout_width="0dp"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="120dp"
-        android:layout_marginBottom="20dp"
-        android:background="@color/dark_beige"
+        android:background="@drawable/testsshablon"
+        android:orientation="horizontal"
         android:padding="15dp"
-        android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="20dp">
 
-    <TextView
-        android:id="@+id/score"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginEnd="20dp"
-        android:background="@color/dark_beige"
-        android:padding="15dp"
-        android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="@+id/question_title"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/question_title"
-        app:layout_constraintTop_toTopOf="@+id/question_title" />
+        <TextView
+            android:id="@+id/question_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:paddingRight="15dp"
+            android:text="TextView"
+            android:textColor="@color/dark_brown"
+            android:fontFamily="@font/vollkorn_bold"/>
+
+        <TextView
+            android:id="@+id/score"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:textColor="@color/dark_brown"
+            android:fontFamily="@font/vollkorn_bold"
+            android:text="TextView" />
+    </LinearLayout>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

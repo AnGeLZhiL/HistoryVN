@@ -16,7 +16,6 @@ class ObjectsViewModel(
         runCatching {
             client.get("objects/$id").body<List<ObjectModel>>()
         }.getOrElse { emptyList() }
-
     }
 
 }
